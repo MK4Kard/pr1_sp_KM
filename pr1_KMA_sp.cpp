@@ -43,7 +43,7 @@ int main()
     }
     cout << "Resultat = " << end << endl;
     if (end % n == 0) {
-        cout << "(end / d) = " << (end / n) << endl;
+        cout << "(end / n) = " << (end / n) << endl;
     }
 }
 
