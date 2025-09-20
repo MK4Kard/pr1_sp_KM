@@ -4,20 +4,47 @@
 #include <iostream>
 using namespace std;
 
+int factorial(int d) {
+    int res{ 1 };
+    if (d == 0 || d == 1) {
+        return 1;
+    }
+    for (int i = 2; i <= d; ++i) {
+        res *= i;
+    }
+    return res;
+}
+
 int main()
 {
     int n;
     int d;
-    int df{ 1 };
+    int num{ 0 };
+    int f{ 0 };
+    int end{ 1 };
     cout << "Enter n ";
     cin >> n;
     cout << "Enter d ";
     cin >> d;
-    for (int i = 2; i <= d; i++) {
-        df = df * i;
+    num = d;
+    while (end % n != 0 && end < (n * 10)) {
+        f = 0;
+        while (num != 0) {
+            int dig = num % 10;
+            cout << "d = " << dig << endl;
+            f += factorial(dig);
+            cout << "f = " << f << endl;
+            num = num / 10;
+            cout << "num = " << num << endl;
+        }
+        end = f;
+        cout << "end = " << end << endl;
+        num = f;
     }
-    int res{ d + df };
-    cout << "Res = " << res << endl;
+    cout << "Resultat = " << end << endl;
+    if (end % n == 0) {
+        cout << "(end / d) = " << (end / n) << endl;
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
